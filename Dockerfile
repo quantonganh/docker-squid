@@ -12,7 +12,6 @@ RUN mv ${SQUID_CONFIG_DIR}/squid.conf ${SQUID_CONFIG_DIR}/squid.conf.dist
 # Create a named pipe and redirect anything that comes to it to stdout
 RUN mkfifo -m 600 /tmp/logpipe
 RUN chown squid:squid /tmp/logpipe
-RUN cat <> /tmp/logpipe 2>&1 &
 
 COPY entrypoint.sh /
 COPY conf/squid.conf /etc/squid/squid.conf
